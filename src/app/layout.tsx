@@ -4,6 +4,9 @@ import { Inter } from "next/font/google";
 
 import ClientLayout from "./Web3Provider";
 import { FC, PropsWithChildren } from "react";
+import theme from "@/styles/theme";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -16,7 +19,14 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClientLayout>{children}</ClientLayout>
+        {" "}
+        <ThemeProvider theme={theme}>
+          <ClientLayout>
+            <CssBaseline />
+            <Header />
+            {children}
+          </ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
