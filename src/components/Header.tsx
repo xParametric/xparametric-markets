@@ -3,7 +3,6 @@ import * as React from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
-import AdbIcon from "@mui/icons-material/Adb";
 import {
   AppBar,
   Avatar,
@@ -99,7 +98,11 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ textTransform: "capitalize" }}
+                >
                   <Link href={`/${page}`} key={page}>
                     <Typography textAlign="center">{page}</Typography>
                   </Link>

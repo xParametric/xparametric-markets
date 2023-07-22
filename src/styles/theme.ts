@@ -7,19 +7,20 @@ const theme = createTheme({
   palette: {
     primary: {
       dark: "#474E68",
-      //   light: "#EFECEC",
+      light: "#EFECEC",
       main: "#404258",
     },
     secondary: {
       main: "#50577A",
       dark: "#6B728E",
+      light: "#8C8881",
     },
 
     error: {
       main: red.A400,
     },
     background: {
-      default: "#EFECEC",
+      default: "#6B728E",
       paper: "#8C8881",
     },
   },

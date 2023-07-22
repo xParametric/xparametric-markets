@@ -1,6 +1,6 @@
 "use client";
 const Home = () => {
-  return <main></main>;
+  return <main className="background"></main>;
 };
 
 export default Home;

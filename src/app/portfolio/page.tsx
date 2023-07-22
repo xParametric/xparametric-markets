@@ -1,7 +1,12 @@
+import PortfolioEarnings from "@/components/PortfolioEarnings";
 import React from "react";
 
 const portfolio = () => {
-  return <div>portfolio</div>;
+  return (
+    <div>
+      <PortfolioEarnings />
+    </div>
+  );
 };
 
 export default portfolio;
