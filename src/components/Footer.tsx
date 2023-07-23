@@ -1,7 +1,8 @@
-import { Grid, Box, Typography } from "@mui/material";
+"use client";
 // import GitHubIcon from "@mui/icons-material/GitHub";
 // import TwitterIcon from "@mui/icons-material/Twitter";
 import Link from "next/link";
+import { Grid, Box, Typography } from "@mui/material";
 
 function Copyright() {
   return (

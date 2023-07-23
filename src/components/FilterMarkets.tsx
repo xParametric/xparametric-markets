@@ -1,6 +1,7 @@
+"use client";
+import React from "react";
 import { Button } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import React from "react";
 
 const FilterMarkets = () => {
   return (

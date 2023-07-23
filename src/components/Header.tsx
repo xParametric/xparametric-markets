@@ -1,8 +1,10 @@
 "use client";
-import * as React from "react";
+import React, { useState, MouseEvent } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
+import Link from "next/link";
+import { ConnectKitButton } from "connectkit";
 import {
   AppBar,
   Avatar,
@@ -16,24 +18,18 @@ import {
   Button,
   Tooltip,
 } from "@mui/material";
-import { ConnectKitButton } from "connectkit";
-import Link from "next/link";
 
 const pages = ["markets", "portfolio", "leaderboard"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
