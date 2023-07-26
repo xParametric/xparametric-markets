@@ -6,9 +6,8 @@ async function main() {
   await contractApi_.deployed();
 
   console.log(`Contract Address:  ${contractApi_.address}`);
-
-  main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-  });
 }
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

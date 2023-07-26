@@ -9,14 +9,16 @@ const { API_URL, PRIVATE_KEY } = process.env;
 
 module.exports = {
   solidity: "0.8.19",
-  defaultNetwork: "volta",
+  defaultNetwork: "sepolia",
   networks: {
     hardhat: {},
-    volta: {
+    sepolia: {
       url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`],
-      gas: 210000000,
-      gasPrice: 800000000000,
+      accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+      chainId: 11155111,
+      nativeCurrencySymbol: "ETH",
+      nativeCurrencyDecimals: 18,
+      mainnet: false,
     },
   },
 };

@@ -15,11 +15,11 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-app.get("/markets-question/:id", async (req, res) => {
-  //http://localhost:3000/market-questions/1
+app.get("/markets-questions/:id", async (req, res) => {
+  //http://localhost:3000/market-question/1
   try {
     const id = req.params.id;
-    const question = await contractInstance.getProduct(id);
+    const question = await contractInstance.getMarketQuestions(id);
     let ques = [];
     ques[0] = question[0];
     ques[1] = parseInt(question[1]);
@@ -31,9 +31,9 @@ app.get("/markets-question/:id", async (req, res) => {
 });
 
 app.get("/market-questions/", async (req, res) => {
-  //http://localhost:3000/questions/
+  //http://localhost:3000/market-questions/
   try {
-    const allQuestions = await contractInstance.getAllQuestions();
+    const allQuestions = await contractInstance.getAllMarketQuestions();
     const questions = allQuestions.map((question) => ({
       id: parseInt(question.id),
       question: question.question,
@@ -101,5 +101,5 @@ app.delete("/market-questions/:id", async (req, res) => {
 
 const port = 3000;
 app.listen(port, () => {
-  console.log("API server is listening on port 3000");
+  console.log(`API server is listening on  port 3000`);
 });
