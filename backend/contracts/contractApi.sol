@@ -32,7 +32,7 @@ contract contractApi {
         string memory _category,
         string memory _subCategory
     ) public onlyOwner {
-        MarketQuestion memory newMarketQuestion = MarketQuestion(
+        MarketQuestion memory question = MarketQuestion(
             _id,
             _question,
             _description,
@@ -40,7 +40,7 @@ contract contractApi {
             _category,
             _subCategory
         );
-        questions[_id] = newMarketQuestion;
+        questions[_id] = question;
         marketQuestionArray.push(
             MarketQuestion(
                 _id,
