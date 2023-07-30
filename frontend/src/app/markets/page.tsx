@@ -1,4 +1,5 @@
 import FilterMarkets from "@/components/FilterMarkets";
+import MarketCard from "@/components/MarketCard";
 import MarketSearch from "@/components/MarketSearch";
 import { Container, Box } from "@mui/material";
 import React from "react";
@@ -13,7 +14,8 @@ const markets = () => {
         {" "}
         <FilterMarkets />
         <MarketSearch />
-      </Box>
+      </Box>{" "}
+      <MarketCard />
     </div>
     // </Container>
   );
