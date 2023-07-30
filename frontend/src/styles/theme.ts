@@ -11,9 +11,9 @@ const theme = createTheme({
       main: "#404258",
     },
     secondary: {
-      main: "#50577A",
+      main: "#171B23",
       dark: "#6B728E",
-      light: "#8C8881",
+      light: "#EFECEC",
     },
 
     error: {
@@ -21,7 +21,7 @@ const theme = createTheme({
     },
     background: {
       default: "#6B728E",
-      paper: "#8C8881",
+      paper: "#EFECEC",
     },
   },
   //   typography: {
