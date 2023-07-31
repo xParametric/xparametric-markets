@@ -5,7 +5,7 @@ import { APP_NAME } from "@/lib/consts";
 import { FC, PropsWithChildren } from "react";
 import { WagmiConfig, createConfig } from "wagmi";
 import UserModel from "@/app/api/models/userModel";
-import { v4 as uuid } from "uuid";
+
 import dbConnect from "@/config/dbConfig";
 import {
   ConnectKitProvider,
@@ -13,7 +13,7 @@ import {
   SIWEProvider,
   getDefaultConfig,
 } from "connectkit";
-const unique_id = uuid();
+
 const config = createConfig(
   getDefaultConfig({
     appName: APP_NAME,
