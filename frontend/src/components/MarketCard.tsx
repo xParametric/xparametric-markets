@@ -1,13 +1,12 @@
 "use client";
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
 import {
   Container,
-  Grid,
   Box,
   Card,
   CardContent,
   CardMedia,
+  Grid,
   Typography,
 } from "@mui/material";
 import CardThumbnailChartYes from "./CardThumbnailChartYes";
@@ -21,11 +20,12 @@ import ShareMarket from "./ShareMarket";
 import BookmarkMarket from "./BookmarkMarket";
 import MarketVote from "./MarketVote";
 import MarketQuestionBreadCrumbs from "./MarketQuestionBreadCrumbs";
-export default function MarketCard() {
-  const theme = useTheme();
-
+interface MarketCardListProps {
+  question: string;
+}
+const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth={"xl"}>
       <Box
         sx={{
           border: 1,
@@ -61,7 +61,7 @@ export default function MarketCard() {
                   id="question"
                   sx={{ py: 1 }}
                 >
-                  Will 2023s Winters be the chillest?
+                  {question}
                 </Typography>
               </CardContent>
             </Grid>
@@ -160,4 +160,6 @@ export default function MarketCard() {
       </Box>
     </Container>
   );
-}
+};
+
+export default MarketCard;
