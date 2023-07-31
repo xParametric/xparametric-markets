@@ -1,12 +1,6 @@
 "use client";
 // import Swiper core and required modules
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,7 +11,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import WeatherInsuranceCarousalCard from "./CarousalCard";
 import { Container } from "@mui/material";
-import styles from "../styles/page.module.css";
 
 // SwiperCore.use([Autoplay]);
 
@@ -83,14 +76,6 @@ export default function LandingPageCarousal() {
         navigation={true}
         modules={[Autoplay, A11y, Pagination, Navigation]}
         className="mySwiper"
-        // effect={"coverflow"}
-        // coverflowEffect={{
-        //   rotate: 10,
-        //   stretch: 50,
-        //   depth: 200,
-        //   modifier: 1,
-        //   slideShadows: true,
-        // }}
         breakpoints={{
           1024: {
             slidesPerView: 3,
