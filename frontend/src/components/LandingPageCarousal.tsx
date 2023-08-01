@@ -76,7 +76,7 @@ export default function LandingPageCarousal() {
     <Container maxWidth="xl" sx={{ mt: 4 }}>
       <Swiper
         spaceBetween={50}
-        slidesPerView={3}
+        slidesPerView={1}
         // navigation
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
@@ -106,7 +106,10 @@ export default function LandingPageCarousal() {
         }}
       >
         {questionsData.map((questionItem) => (
-          <SwiperSlide key={questionItem.id}>
+          <SwiperSlide
+            key={questionItem.id}
+            style={{ justifyContent: "center", display: "flex" }}
+          >
             <WeatherInsuranceCarousalCard
               question={questionItem.question}
               betValueNo={questionItem.betValueNo}

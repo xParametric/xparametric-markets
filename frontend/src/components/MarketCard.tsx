@@ -76,7 +76,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
                     p: 2,
                     borderRadius: 1,
                     borderBottomColor: "#284E45",
-                    width: "100%",
+                    // width: "100%",
                   }}
                 >
                   <Box width="100%" sx={{ mx: 1 }}>
@@ -100,7 +100,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
                     p: 2,
                     borderRadius: 1,
                     borderBottomColor: "#9F3638",
-                    width: "100%",
+                    // width: "100%",
                   }}
                 >
                   <Box width="100%" mx={1}>
