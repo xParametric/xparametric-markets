@@ -1,14 +1,21 @@
 "use client";
-import { useEffect } from "react";
-import dbConnect from "@/config/dbConfig";
-import MarketCard from "@/components/MarketCard";
-import CarousalCards from "@/components/LandingPageCarousal";
-import LandingPageCarousal from "@/components/LandingPageCarousal";
+
+import CarousalDynamicLoading from "@/components/CarousalDynamicLoading";
+import MarketCardList from "@/components/MarketCardList";
+import { Typography } from "@mui/material";
 
 const Home = () => {
   return (
     <main className="background">
-      <LandingPageCarousal />
+      <Typography
+        variant="h3"
+        sx={{ textAlign: "center", my: 2 }}
+        component={"h1"}
+      >
+        Featured Markets
+      </Typography>
+      <CarousalDynamicLoading />
+      <MarketCardList />
     </main>
   );
 };

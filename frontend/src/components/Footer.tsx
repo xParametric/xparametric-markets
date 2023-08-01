@@ -1,6 +1,6 @@
 "use client";
-// import GitHubIcon from "@mui/icons-material/GitHub";
-// import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import Link from "next/link";
 import { Grid, Box, Typography } from "@mui/material";
 
@@ -21,16 +21,16 @@ const Footer = () => {
     <div>
       {/* Footer */}
       <Box
-        sx={{ bgcolor: "primary.main", p: 6, color: "#ffffff", mt: 50 }}
+        sx={{ bgcolor: "primary.main", p: 6, color: "#ffffff" }}
         component="footer"
       >
         <Grid container>
-          <Grid item md={3} xs={12}>
+          <Grid item md={5} lg={4} xl={3} xs={12}>
             <Link
               href={"/"}
               style={{
                 textDecoration: "none",
-                color: "primary.light",
+                color: "#EFECEC",
               }}
             >
               <Typography
@@ -38,7 +38,7 @@ const Footer = () => {
                 component={"h1"}
                 sx={{
                   textDecoration: "none",
-                  color: "primary.light",
+                  color: "#EFECEC",
                   ":hover": {
                     color: "background.paper",
                   },
@@ -48,16 +48,13 @@ const Footer = () => {
               </Typography>
             </Link>
           </Grid>
-          <Grid item xs={6} xl={3} sm={3} md={3}>
-            <Box>
-              <Link
-                href="/"
-                style={{ textDecoration: "none", color: "#222629" }}
-              >
+          <Grid item xs={6} xl={3} sm={3} md={3} lg={3}>
+            <Box m={1}>
+              <Link href="/" style={{ textDecoration: "none" }}>
                 <Typography
-                  variant="overline"
+                  variant="subtitle2"
                   sx={{
-                    color: "primary.light",
+                    color: "#EFECEC",
                     ":hover": {
                       color: "background.paper",
                     },
@@ -68,15 +65,15 @@ const Footer = () => {
               </Link>
             </Box>
 
-            <Box>
+            <Box m={1}>
               <Link
                 href="https://docs.parametrica.dev/"
-                style={{ textDecoration: "none", color: "#222629" }}
+                style={{ textDecoration: "none" }}
               >
                 <Typography
-                  variant="overline"
+                  variant="subtitle2"
                   sx={{
-                    color: "primary.light",
+                    color: "#EFECEC",
                     ":hover": {
                       color: "background.paper",
                     },
@@ -87,16 +84,13 @@ const Footer = () => {
               </Link>
             </Box>
           </Grid>
-          <Grid item xs={6} xl={3} sm={3} md={3}>
-            <Box>
-              <Link
-                href="/"
-                style={{ textDecoration: "none", color: "#222629" }}
-              >
+          <Grid item xs={6} xl={3} sm={3} md={3} lg={3}>
+            <Box m={1}>
+              <Link href="/" style={{ textDecoration: "none" }}>
                 <Typography
-                  variant="overline"
+                  variant="subtitle2"
                   sx={{
-                    color: "primary.light",
+                    color: "#EFECEC",
                     ":hover": {
                       color: "background.paper",
                     },
@@ -106,15 +100,15 @@ const Footer = () => {
                 </Typography>
               </Link>
             </Box>
-            <Box>
+            <Box m={1}>
               <Link
                 href="mailhref:info@parametrica.dev"
-                style={{ textDecoration: "none", color: "#222629" }}
+                style={{ textDecoration: "none" }}
               >
                 <Typography
-                  variant="overline"
+                  variant="subtitle2"
                   sx={{
-                    color: "primary.light",
+                    color: "#EFECEC",
                     // textTransform: "unset",
                     ":hover": {
                       color: "background.paper",
@@ -127,17 +121,14 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={6} xl={3} sm={3} md={3}>
-            <Box>
+          <Grid item xs={6} xl={3} sm={3} md={3} lg={2}>
+            <Box m={1}>
               <Box>
-                <Link
-                  href="/"
-                  style={{ textDecoration: "none", color: "#222629" }}
-                >
+                <Link href="/" style={{ textDecoration: "none" }}>
                   <Typography
-                    variant="overline"
+                    variant="subtitle2"
                     sx={{
-                      color: "primary.light",
+                      color: "#EFECEC",
                       ":hover": {
                         color: "background.paper",
                       },
@@ -150,45 +141,50 @@ const Footer = () => {
               <Box display={"flex"}>
                 <Box>
                   <Link
-                    href="https://github.com/parametrica-desci/parametrica"
+                    href="https://github.com/xParametric"
                     target={"_blank"}
-                    style={{ textDecoration: "none", color: "#222629" }}
+                    style={{ textDecoration: "none" }}
                   >
                     <Typography
-                      variant="overline"
+                      variant="subtitle2"
                       sx={{
-                        color: "primary.light",
+                        color: "#EFECEC",
                         ":hover": {
                           color: "background.paper",
                         },
                       }}
                     >
-                      {/* <GitHubIcon /> */}
+                      <GitHubIcon
+                        sx={{
+                          width: 20,
+                        }}
+                      />
                     </Typography>
                   </Link>
                 </Box>
                 <Box mx={1}>
-                  <Link
-                    href="/"
-                    style={{ textDecoration: "none", color: "#222629" }}
-                  >
+                  <Link href="/" style={{ textDecoration: "none" }}>
                     <Typography
-                      variant="overline"
+                      variant="subtitle2"
                       sx={{
-                        color: "primary.light",
+                        color: "#EFECEC",
                         ":hover": {
                           color: "background.paper",
                         },
                       }}
                     >
-                      {/* <TwitterIcon /> */}
+                      <TwitterIcon
+                        sx={{
+                          width: 20,
+                        }}
+                      />
                     </Typography>
                   </Link>
                 </Box>
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={6} xl={3} sm={3} md={3}></Grid>
+          <Grid item xs={6} xl={3} sm={3} md={3} lg={3}></Grid>
         </Grid>
         <Grid container justifyContent={"center"}>
           <Box mt={6}>

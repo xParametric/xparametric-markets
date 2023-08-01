@@ -5,28 +5,34 @@ import { red } from "@mui/material/colors";
 // A custom theme for this app
 const theme = createTheme({
   palette: {
-    primary: {
-      dark: "#474E68",
-      light: "#EFECEC",
-      main: "#404258",
-    },
     secondary: {
-      main: "#171B23",
-      dark: "#6B728E",
-      light: "#EFECEC",
+      main: "#78C1F3",
+      // light: "#9DB2BF",
+
+      contrastText: "#F8FDCF",
+
+      // main: "#",
+    },
+    primary: {
+      main: "#27374D",
+      // dark: "#526D82",  dark: "#E2F6CA",
+
+      // light: "#9BE8D8",
+
+      contrastText: "#DDE6ED",
     },
 
-    error: {
-      main: red.A400,
-    },
+    // error: {
+    //   main: red.A400,
+    // },
     background: {
-      default: "#6B728E",
-      paper: "#EFECEC",
+      default: "#EFECEC",
+      paper: "#FFFFFF",
     },
   },
-  //   typography: {
-  //     fontFamily: "Raleway,sans-serif",
-  //   },
+  typography: {
+    fontFamily: "Raleway,sans-serif",
+  },
   //   components: {
   //     MuiDrawer: {
   //       styleOverrides: {
