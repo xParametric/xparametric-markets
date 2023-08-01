@@ -32,6 +32,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
           borderRadius: 1,
           boxShadow: 1,
           borderColor: "#8C8881",
+          my: 2,
         }}
       >
         <Card sx={{ display: "flex", width: "100%" }}>

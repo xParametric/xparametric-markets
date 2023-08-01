@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import ClientLayout from "./Web3Provider";
 import { FC, PropsWithChildren } from "react";
@@ -9,7 +8,9 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// const raleway = Raleway({
+//   subsets: ["latin"],
+// });
 export const metadata: Metadata = {
   title: "Parametrica",
   description:
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <ClientLayout>
