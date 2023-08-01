@@ -9,7 +9,7 @@ const Home = () => {
     <main className="background">
       <Typography
         variant="h3"
-        sx={{ textAlign: "center", my: 2 }}
+        sx={{ textAlign: "center", my: 2, color: "primary.main" }}
         component={"h1"}
       >
         Featured Markets
