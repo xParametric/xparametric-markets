@@ -9,7 +9,9 @@ const Liquidity = () => {
           <WaterDropIcon />
         </Box>
         <Box>
-          <Typography variant="subtitle1">$51.k</Typography>
+          <Typography variant="subtitle1" fontWeight={600}>
+            $51.3 k
+          </Typography>
         </Box>
       </Box>
     </div>

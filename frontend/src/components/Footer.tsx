@@ -34,7 +34,7 @@ const Footer = () => {
               }}
             >
               <Typography
-                variant="h2"
+                variant="h3"
                 component={"h1"}
                 sx={{
                   textDecoration: "none",

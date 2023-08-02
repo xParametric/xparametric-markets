@@ -10,7 +10,9 @@ const MarketTradingFee = () => {
           <PercentIcon />
         </Box>
         <Box>
-          <Typography variant="subtitle1">3</Typography>
+          <Typography variant="subtitle1" fontWeight={600}>
+            3
+          </Typography>
         </Box>
       </Box>
     </div>

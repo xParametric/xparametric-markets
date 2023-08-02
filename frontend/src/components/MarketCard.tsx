@@ -22,8 +22,9 @@ import MarketVote from "./MarketVote";
 import MarketQuestionBreadCrumbs from "./MarketQuestionBreadCrumbs";
 interface MarketCardListProps {
   question: string;
+  imageUrl: string;
 }
-const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
+const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
   return (
     <Container maxWidth={"xl"}>
       <Box
@@ -40,12 +41,13 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question }) => {
             <CardMedia
               component="img"
               sx={{
-                width: "auto",
-                height: "auto",
-                maxWidth: "100%",
-                maxHeight: "100%",
+                width: "100px",
+                height: "100px",
+                // maxWidth: "100%",
+                // maxHeight: "100%",
+                borderRadius: "100%",
               }}
-              image="https://dl.dropboxusercontent.com/s/zev7x0zcy0lu8x6/token.png"
+              image={imageUrl}
               alt="Live from space album cover"
             />
           </Box>
