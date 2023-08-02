@@ -10,7 +10,9 @@ const MarketValue = () => {
           <LeaderboardIcon />
         </Box>
         <Box>
-          <Typography variant="subtitle1">$854.k</Typography>
+          <Typography variant="subtitle1" fontWeight={600}>
+            $854.k
+          </Typography>
         </Box>
       </Box>
     </div>

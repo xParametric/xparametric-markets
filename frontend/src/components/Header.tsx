@@ -43,7 +43,7 @@ function Header() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Box mx={2}>
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
@@ -169,7 +169,7 @@ function Header() {
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
+      </Box>
     </AppBar>
   );
 }

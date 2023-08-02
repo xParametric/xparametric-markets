@@ -9,7 +9,9 @@ const MarketQuestionDate = () => {
           <CalendarMonthIcon />
         </Box>
         <Box>
-          <Typography variant="subtitle1">1 June</Typography>
+          <Typography variant="subtitle1" fontWeight={600}>
+            1 June
+          </Typography>
         </Box>
       </Box>
     </div>

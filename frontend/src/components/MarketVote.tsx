@@ -21,7 +21,9 @@ const MarketVote = () => {
           </IconButton>
         </Box>
         <Box>
-          <Typography variant="subtitle1">{voteCount}</Typography>
+          <Typography variant="subtitle1" fontWeight={600}>
+            {voteCount}
+          </Typography>
         </Box>
         <Box>
           <IconButton
