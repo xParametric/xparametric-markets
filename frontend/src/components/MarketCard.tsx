@@ -1,5 +1,8 @@
 "use client";
 import * as React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 import {
   Container,
   Box,
@@ -20,14 +23,30 @@ import ShareMarket from "./ShareMarket";
 import BookmarkMarket from "./BookmarkMarket";
 import MarketVote from "./MarketVote";
 import MarketQuestionBreadCrumbs from "./MarketQuestionBreadCrumbs";
+
 interface MarketCardListProps {
-  question: string;
-  imageUrl: string;
+  questionId: number; // Add the questionId prop to the MarketCard component
+  // Rest of the props...
 }
-const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
+
+const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
+  const questions = useSelector(
+    (state: RootState) => state.questions.questionsData
+  );
+
+  // Find the question corresponding to the given questionId
+  const question = questions.find((q) => q.id === questionId);
+
+  if (!question) {
+    // Handle the case when the question is not found
+    return null;
+  }
+
   return (
     <Container maxWidth={"xl"}>
+      {/* Removed unnecessary opening and closing div tags */}
       <Box
+        key={question.id}
         sx={{
           border: 1,
           borderRadius: 1,
@@ -43,20 +62,17 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
               sx={{
                 width: "100px",
                 height: "100px",
-                // maxWidth: "100%",
-                // maxHeight: "100%",
                 borderRadius: "100%",
               }}
-              image={imageUrl}
+              image={question.imageUrl}
               alt="Live from space album cover"
             />
           </Box>
-
           <Grid container>
             <Grid item xs={12} xl={7}>
               <CardContent>
                 <Box>
-                  <MarketQuestionBreadCrumbs />
+                  <MarketQuestionBreadCrumbs questionId={questionId} />
                 </Box>
                 <Typography
                   component="div"
@@ -64,7 +80,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
                   id="question"
                   sx={{ py: 1 }}
                 >
-                  {question}
+                  {question.question}
                 </Typography>
               </CardContent>
             </Grid>
@@ -78,7 +94,6 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
                     p: 2,
                     borderRadius: 1,
                     borderBottomColor: "#284E45",
-                    // width: "100%",
                   }}
                 >
                   <Box width="100%" sx={{ mx: 1 }}>
@@ -86,8 +101,9 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
                       <Typography variant="body1">Yes</Typography>
                     </Box>
                     <Box display="flex">
-                      <Typography variant="subtitle2">0.64USDT</Typography>
-                      {/* <TrendingUpIcon /> */}
+                      <Typography variant="subtitle2">
+                        {question.betValueYes}USDT
+                      </Typography>
                     </Box>
                   </Box>
                   <Box sx={{ mx: 1 }}>
@@ -102,7 +118,6 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
                     p: 2,
                     borderRadius: 1,
                     borderBottomColor: "#9F3638",
-                    // width: "100%",
                   }}
                 >
                   <Box width="100%" mx={1}>
@@ -110,8 +125,9 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
                       <Typography variant="body1">No</Typography>
                     </Box>
                     <Box display="flex">
-                      <Typography variant="subtitle2">1.4USDT</Typography>
-                      {/* <TrendingUpIcon /> */}
+                      <Typography variant="subtitle2">
+                        {question.betValueNo}USDT
+                      </Typography>
                     </Box>
                   </Box>
                   <Box mx={1}>
@@ -134,14 +150,13 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "space-between", xl: "space-around" },
-                // backgroundColor: "#234823",
                 p: 1,
               }}
             >
-              <MarketValue />
-              <Liquidity />
-              <MarketTradingFee />
-              <MarketQuestionDate />
+              <MarketValue questionId={questionId} />
+              <Liquidity questionId={questionId} />
+              <MarketTradingFee questionId={questionId} />
+              <MarketQuestionDate questionId={questionId} />
             </Box>
           </Grid>
           <Grid item xs={12} xl={4}></Grid>
@@ -150,7 +165,6 @@ const MarketCard: React.FC<MarketCardListProps> = ({ question, imageUrl }) => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "space-between", xl: "space-around" },
-                // backgroundColor: "#234823",
                 p: 1,
               }}
             >

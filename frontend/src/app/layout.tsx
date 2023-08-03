@@ -1,3 +1,4 @@
+"use client";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -7,7 +8,8 @@ import theme from "@/styles/theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 // const raleway = Raleway({
 //   subsets: ["latin"],
 // });
@@ -21,14 +23,17 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ClientLayout>
-            <Header />
-            {children}
-            <Footer />
-          </ClientLayout>
-        </ThemeProvider>
+        <Provider store={store}>
+          {" "}
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ClientLayout>
+              <Header />
+              {children}
+              <Footer />
+            </ClientLayout>
+          </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

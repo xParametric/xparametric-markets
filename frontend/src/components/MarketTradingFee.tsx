@@ -2,7 +2,26 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import PercentIcon from "@mui/icons-material/Percent";
 
-const MarketTradingFee = () => {
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
+interface MarketTradingFeeProps {
+  questionId: number;
+}
+
+const MarketTradingFee: React.FC<MarketTradingFeeProps> = ({ questionId }) => {
+  const question = useSelector((state: RootState) => {
+    const selectedQuestion = state.questions.questionsData.find(
+      (q) => q.id === questionId
+    );
+    return selectedQuestion;
+  });
+
+  if (!question) {
+    // Handle the case when the question is not found
+    return null;
+  }
+
   return (
     <div>
       <Box display={"flex"}>
@@ -11,7 +30,7 @@ const MarketTradingFee = () => {
         </Box>
         <Box>
           <Typography variant="subtitle1" fontWeight={600}>
-            3
+            {question.tradingFee}
           </Typography>
         </Box>
       </Box>
