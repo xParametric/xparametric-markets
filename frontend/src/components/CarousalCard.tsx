@@ -6,26 +6,36 @@ import {
   Button,
   CardMedia,
 } from "@mui/material";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
-interface WeatherInsuranceCardProps {
-  question: string;
-  betValueYes: number;
-  betValueNo: number;
-  imageUrl: string;
+interface CarousalCardProps {
+  questionId: number;
 }
 
-const WeatherInsuranceCarousalCard: React.FC<WeatherInsuranceCardProps> = ({
-  question,
-  betValueYes,
-  betValueNo,
-  imageUrl,
-}) => {
+const CarousalCard: React.FC<CarousalCardProps> = ({ questionId }) => {
+  const question = useSelector((state: RootState) => {
+    const selectedQuestion = state.questions.questionsData.find(
+      (q) => q.id === questionId
+    );
+    return selectedQuestion;
+  });
+
+  if (!question) {
+    // Handle the case when the question is not found
+    return null;
+  }
+
   return (
     <Card sx={{ height: 330, width: 450, my: 2 }}>
-      <CardMedia sx={{ height: 170 }} image={imageUrl} title="green iguana" />
+      <CardMedia
+        sx={{ height: 170 }}
+        image={question.imageUrl}
+        title="green iguana"
+      />
       <CardContent>
         <Typography variant="body1" color="text.secondary">
-          {question}
+          {question.question}
         </Typography>
       </CardContent>
       <CardActions>
@@ -34,18 +44,18 @@ const WeatherInsuranceCarousalCard: React.FC<WeatherInsuranceCardProps> = ({
           variant="outlined"
           sx={{ border: 1, borderColor: "green" }}
         >
-          Yes ${betValueYes}
+          Yes ${question.betValueYes}
         </Button>
         <Button
           size="small"
           variant="outlined"
           sx={{ border: 1, borderColor: "red" }}
         >
-          No ${betValueNo}
+          No ${question.betValueNo}
         </Button>
       </CardActions>
     </Card>
   );
 };
 
-export default WeatherInsuranceCarousalCard;
+export default CarousalCard;
