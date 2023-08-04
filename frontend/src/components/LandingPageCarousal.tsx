@@ -18,15 +18,8 @@ import "swiper/css/scrollbar";
 import { Container } from "@mui/material";
 import CarousalCard from "./CarousalCard";
 
-interface LandingPageCarousalProps {
-  // Add the questionIds prop to the LandingPageCarousal component
-  questionId: number[];
-}
-
 // SwiperCore.use([Autoplay]);
-const LandingPageCarousal: React.FC<LandingPageCarousalProps> = ({
-  questionId,
-}) => {
+const LandingPageCarousal: React.FC = () => {
   const dispatch = useDispatch();
 
   // Load questions data from the Redux store

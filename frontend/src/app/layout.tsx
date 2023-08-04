@@ -1,7 +1,6 @@
-"use client";
 import "./globals.css";
 import type { Metadata } from "next";
-
+import React from "react";
 import ClientLayout from "./Web3Provider";
 import { FC, PropsWithChildren } from "react";
 import theme from "@/styles/theme";
@@ -10,9 +9,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
+import { ReduxProvider } from "@/redux/provider";
 // const raleway = Raleway({
 //   subsets: ["latin"],
 // });
+
 export const metadata: Metadata = {
   title: "Parametrica",
   description:
@@ -23,7 +24,7 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Provider store={store}>
+        <ReduxProvider>
           {" "}
           <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -33,7 +34,7 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
               <Footer />
             </ClientLayout>
           </ThemeProvider>
-        </Provider>
+        </ReduxProvider>
       </body>
     </html>
   );
