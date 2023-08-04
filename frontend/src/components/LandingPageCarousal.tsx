@@ -50,24 +50,30 @@ const LandingPageCarousal: React.FC = () => {
         // scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        loop={true}
-        // loopFillGroupWithBlank={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        // loop={true} // dont use if rewind is true
+        // loopedSlides={10}
+        // centeredSlides={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        // maxBackfaceHiddenSlides={10}
+        rewind={true}
         // navigation={true}
         modules={[Autoplay, A11y, Pagination, Navigation]}
         className="mySwiper"
         breakpoints={{
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
           640: {
             slidesPerView: 1,
             spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
           },
         }}
       >
