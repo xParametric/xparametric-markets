@@ -61,7 +61,7 @@ const CardThumbnailChartNo: React.FC = () => {
           bottom: 5,
         }}
       >
-        <Area type="monotone" dataKey="uv" stroke="#9F3638" fill="#5B292E" />
+        <Area type="monotone" dataKey="uv" stroke="#DC4155" fill="#DC4155" />
       </AreaChart>
     </div>
   );

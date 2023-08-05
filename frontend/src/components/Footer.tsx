@@ -21,10 +21,10 @@ const Footer = () => {
     <div>
       {/* Footer */}
       <Box
-        sx={{ bgcolor: "primary.main", p: 6, color: "#ffffff" }}
+        sx={{ bgcolor: "primary.main", p: 6, color: "#ffffff", mt: 6 }}
         component="footer"
       >
-        <Grid container>
+        {/* <Grid container>
           <Grid item md={5} lg={4} xl={3} xs={12}>
             <Link
               href={"/"}
@@ -185,9 +185,9 @@ const Footer = () => {
             </Box>
           </Grid>
           <Grid item xs={6} xl={3} sm={3} md={3} lg={3}></Grid>
-        </Grid>
+        </Grid> */}
         <Grid container justifyContent={"center"}>
-          <Box mt={6}>
+          <Box>
             <Copyright />
           </Box>
         </Grid>

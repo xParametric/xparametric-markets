@@ -2,7 +2,32 @@
 import React from "react";
 import { AreaChart, Area } from "recharts";
 
-const data = [
+// type BetData = {
+//   name: string;
+//   uv: number;
+// };
+
+// const generateChartDataForYes = (yesBetValues: number[]): BetData[] => {
+//   const totalYesAmount = yesBetValues.reduce(
+//     (sum, betValue) => sum + betValue,
+//     0
+//   );
+
+//   const data: BetData[] = yesBetValues.map((betValue, index) => ({
+//     name: `Bet ${index + 1}`,
+//     uv: (betValue / totalYesAmount) * 100,
+//   }));
+
+//   return data;
+// };
+
+// // Example usage with different bet values for "Yes"
+// const yesBetValues: number[] = [300, 450, 200, 150, 350];
+// const yesChartData: BetData[] = generateChartDataForYes(yesBetValues);
+
+// console.log(yesChartData);
+
+const yesChartData = [
   {
     name: "Page A",
     uv: 100,
@@ -53,7 +78,7 @@ const CardThumbnailChartYes: React.FC = () => {
       <AreaChart
         width={80}
         height={60}
-        data={data}
+        data={yesChartData}
         margin={{
           top: 5,
           right: 0,
@@ -61,7 +86,7 @@ const CardThumbnailChartYes: React.FC = () => {
           bottom: 5,
         }}
       >
-        <Area type="monotone" dataKey="uv" stroke="#284E45" fill="#2D6553" />
+        <Area type="monotone" dataKey="uv" stroke="#0ECB81" fill="#0ECB81" />
       </AreaChart>
     </div>
   );

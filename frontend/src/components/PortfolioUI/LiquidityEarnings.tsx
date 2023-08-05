@@ -11,93 +11,102 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const LiquidityEarnings = () => {
+const LiquidityEarnings: React.FC = () => {
   const data = [
     {
       name: "Page A",
-      uv: 100,
-      pv: 400,
-      amt: 400,
+      uv: 650,
+      pv: 200,
+      amt: 800,
     },
     {
       name: "Page B",
-      uv: 250,
-      pv: 139,
-      amt: 221,
+      uv: 300,
+      pv: 430,
+      amt: 350,
     },
     {
       name: "Page C",
-      uv: 200,
-      pv: 980,
-      amt: 229,
+      uv: 180,
+      pv: 720,
+      amt: 450,
     },
     {
       name: "Page D",
-      uv: 780,
-      pv: 908,
+      uv: 1100,
+      pv: 860,
       amt: 1000,
     },
     {
       name: "Page E",
-      uv: 1890,
-      pv: 1800,
-      amt: 2181,
+      uv: 880,
+      pv: 540,
+      amt: 650,
     },
     {
       name: "Page F",
-      uv: 390,
-      pv: 800,
-      amt: 500,
+      uv: 400,
+      pv: 680,
+      amt: 370,
     },
     {
       name: "Page G",
-      uv: 390,
-      pv: 400,
-      amt: 100,
+      uv: 750,
+      pv: 350,
+      amt: 720,
     },
     {
       name: "Page H",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 1300,
+      pv: 990,
+      amt: 1400,
     },
     {
       name: "Page I",
       uv: 490,
-      pv: 300,
-      amt: 100,
+      pv: 360,
+      amt: 790,
     },
   ];
+
   return (
-    <div>
-      <Box
-        sx={{ borderRadius: 1, m: 1, boxShadow: 1, width: "100%" }}
-        className="custom-liquidity-earnings"
+    <Box
+      className="custom-liquidity-earnings"
+      sx={{
+        borderRadius: 4,
+        m: 2,
+        boxShadow: 1,
+        backgroundColor: "#fff",
+        padding: 1,
+      }}
+    >
+      <Typography
+        variant="subtitle1"
+        sx={{ color: "background.default", mb: 1 }}
       >
-        <Typography sx={{ p: 1, color: "background.default" }}>
-          Liquidity Earnings
-        </Typography>
-        <AreaChart
-          width={320}
-          height={60}
-          data={data}
-          margin={{
-            top: 5,
-            right: 0,
-            left: 0,
-            bottom: 5,
-          }}
-        >
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stroke="#FFFFFF"
-            fill="#FFFFFF"
-            opacity={0.6}
-          />
-        </AreaChart>
-      </Box>
-    </div>
+        Liquidity Earnings
+      </Typography>
+
+      <AreaChart
+        width={320}
+        height={60}
+        data={data}
+        margin={{
+          top: 5,
+          right: 0,
+          left: 0,
+          bottom: 5,
+        }}
+      >
+        <Area
+          type="monotone"
+          dataKey="uv"
+          stroke="#FFFFFF"
+          fill="#FFFFFF"
+          fillOpacity={0.4}
+        />
+      </AreaChart>
+    </Box>
   );
 };
 
