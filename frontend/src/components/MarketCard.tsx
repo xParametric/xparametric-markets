@@ -48,8 +48,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
       <Box
         key={question.id}
         sx={{
-          border: 1,
-          borderRadius: 1,
+          borderRadius: 3,
           boxShadow: 1,
           borderColor: "#8C8881",
           my: 2,
@@ -151,6 +150,7 @@ const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
                 display: "flex",
                 justifyContent: { xs: "space-between", xl: "space-around" },
                 p: 1,
+                borderRadius: 3,
               }}
             >
               <MarketValue questionId={questionId} />
@@ -165,7 +165,6 @@ const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
               sx={{
                 display: "flex",
                 justifyContent: { xs: "space-between", xl: "space-around" },
-                p: 1,
               }}
             >
               <ShareMarket />

@@ -9,10 +9,10 @@ import { RootState } from "@/redux/store";
 interface LiquidityProps {
   questionId: number;
 }
-function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
+// function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+//   event.preventDefault();
+//   console.info("You clicked a breadcrumb.");
+// }
 
 const MarketQuestionBreadCrumbs: React.FC<LiquidityProps> = ({
   questionId,
@@ -30,17 +30,14 @@ const MarketQuestionBreadCrumbs: React.FC<LiquidityProps> = ({
   }
 
   return (
-    <div role="presentation" onClick={handleClick}>
-      <Breadcrumbs aria-label="breadcrumb">
-        {/* <Link underline="hover" color="inherit" href="/">
-          Weather
-        </Link> */}
-        <Link underline="hover" color="inherit" href="/">
-          {question.category}
-        </Link>
-        <Typography color="text.primary">{question.subCategory}</Typography>
-      </Breadcrumbs>
-    </div>
+    <Breadcrumbs aria-label="breadcrumb">
+      <Typography variant="subtitle2" textTransform={"uppercase"}>
+        {question.category}
+      </Typography>
+      <Typography variant="subtitle1" textTransform={"uppercase"}>
+        {question.subCategory}
+      </Typography>
+    </Breadcrumbs>
   );
 };
 

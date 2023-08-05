@@ -93,7 +93,7 @@ const siweConfig = {
 const Web3Provider: FC<PropsWithChildren<{}>> = ({ children }) => (
   <WagmiConfig config={config}>
     <SIWEProvider {...siweConfig}>
-      <ConnectKitProvider>{children}</ConnectKitProvider>
+      <ConnectKitProvider theme="nouns">{children}</ConnectKitProvider>
     </SIWEProvider>
   </WagmiConfig>
 );

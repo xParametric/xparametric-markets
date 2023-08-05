@@ -42,14 +42,14 @@ const CarousalCard: React.FC<CarousalCardProps> = ({ questionId }) => {
         <Button
           size="small"
           variant="outlined"
-          sx={{ border: 1, borderColor: "green" }}
+          sx={{ border: 1, borderColor: "#0ECB81" }}
         >
           Yes ${question.betValueYes}
         </Button>
         <Button
           size="small"
           variant="outlined"
-          sx={{ border: 1, borderColor: "red" }}
+          sx={{ border: 1, borderColor: "#DC4155" }}
         >
           No ${question.betValueNo}
         </Button>

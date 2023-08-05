@@ -11,93 +11,102 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const LiquidityProvided = () => {
+const LiquidityProvided: React.FC = () => {
   const data = [
     {
       name: "Page A",
-      uv: 100,
-      pv: 400,
-      amt: 400,
-    },
-    {
-      name: "Page B",
-      uv: 250,
-      pv: 139,
-      amt: 221,
-    },
-    {
-      name: "Page C",
-      uv: 200,
-      pv: 980,
-      amt: 229,
-    },
-    {
-      name: "Page D",
-      uv: 780,
-      pv: 908,
+      uv: 820,
+      pv: 600,
       amt: 1000,
     },
     {
+      name: "Page B",
+      uv: 400,
+      pv: 230,
+      amt: 350,
+    },
+    {
+      name: "Page C",
+      uv: 180,
+      pv: 890,
+      amt: 590,
+    },
+    {
+      name: "Page D",
+      uv: 1300,
+      pv: 960,
+      amt: 1400,
+    },
+    {
       name: "Page E",
-      uv: 1890,
-      pv: 1800,
-      amt: 2181,
+      uv: 980,
+      pv: 710,
+      amt: 870,
     },
     {
       name: "Page F",
-      uv: 390,
-      pv: 800,
-      amt: 500,
+      uv: 550,
+      pv: 870,
+      amt: 430,
     },
     {
       name: "Page G",
-      uv: 390,
-      pv: 400,
-      amt: 100,
+      uv: 920,
+      pv: 500,
+      amt: 790,
     },
     {
       name: "Page H",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 1490,
+      pv: 1340,
+      amt: 1200,
     },
     {
       name: "Page I",
-      uv: 490,
-      pv: 300,
-      amt: 100,
+      uv: 620,
+      pv: 490,
+      amt: 890,
     },
   ];
+
   return (
-    <div>
-      <Box
-        sx={{ borderRadius: 1, m: 1, boxShadow: 1, width: "100%" }}
-        className="custom-liquidity-provided"
+    <Box
+      className="custom-liquidity-provided"
+      sx={{
+        borderRadius: 4,
+        m: 2,
+        boxShadow: 1,
+        backgroundColor: "#fff",
+        padding: 1,
+      }}
+    >
+      <Typography
+        variant="subtitle1"
+        sx={{ color: "background.default", mb: 1 }}
       >
-        <Typography sx={{ p: 1, color: "background.default" }}>
-          Liquidity Provided
-        </Typography>
-        <AreaChart
-          width={320}
-          height={60}
-          data={data}
-          margin={{
-            top: 5,
-            right: 0,
-            left: 0,
-            bottom: 5,
-          }}
-        >
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stroke="#FFFFFF"
-            fill="#FFFFFF"
-            opacity={0.6}
-          />
-        </AreaChart>
-      </Box>
-    </div>
+        Liquidity Provided
+      </Typography>
+
+      <AreaChart
+        width={320}
+        height={60}
+        data={data}
+        margin={{
+          top: 5,
+          right: 0,
+          left: 0,
+          bottom: 5,
+        }}
+      >
+        <Area
+          type="monotone"
+          dataKey="uv"
+          stroke="#FFFFFF"
+          fill="#FFFFFF"
+          fillOpacity={0.4}
+        />
+      </AreaChart>
+    </Box>
   );
 };
 

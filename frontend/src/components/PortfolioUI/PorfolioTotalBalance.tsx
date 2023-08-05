@@ -9,31 +9,40 @@ const PorfolioTotalBalance: React.FC = () => {
       sx={{
         border: 1,
         boxShadow: 1,
-        borderRadius: 1,
+        borderRadius: 4,
         padding: 2,
         my: 2,
         mx: 4,
+        backgroundColor: "#F4F4F4", // Change to a more appealing background color
       }}
     >
-      <Grid container alignItems="center" justifyContent="space-between">
-        <Grid item>
-          <Typography variant="h3" component="div">
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="space-between"
+        spacing={2}
+      >
+        <Grid item xs={12} sm={6} color={"primary.main"}>
+          <Typography variant="h4" component="div">
             $0
           </Typography>
-          <Typography variant="caption">Total Balance</Typography>
+          <Typography variant="subtitle1" color={"primary.main"}>
+            Total Balance
+          </Typography>
         </Grid>
         <Grid item>
           <Box
             sx={{
-              backgroundColor: "#21937284",
+              backgroundColor: "primary.main",
               display: "inline-block",
-              borderRadius: "50%",
+              borderRadius: 5,
+
               padding: 1,
             }}
           >
             <Box display="flex" alignItems="center">
-              <ArrowDropUpIcon />
-              <Typography>+0%</Typography>
+              <ArrowDropUpIcon sx={{ color: "#FFF" }} />
+              <Typography sx={{ color: "#FFF", marginLeft: 1 }}>+0%</Typography>
             </Box>
           </Box>
         </Grid>

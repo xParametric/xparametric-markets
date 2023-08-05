@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, MouseEvent } from "react";
-
 import MenuIcon from "@mui/icons-material/Menu";
-
 import Link from "next/link";
 import { ConnectKitButton } from "connectkit";
 import {
@@ -29,6 +27,7 @@ function Header() {
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -42,28 +41,45 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
-      <Box mx={2}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "transparent", boxShadow: 1 }}
+    >
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
-            component="a"
+            component={Link}
             href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              // fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "primary.main",
               textDecoration: "none",
             }}
           >
             Parametrica
-          </Typography>
+          </Typography> */}
+          <Link href={"/"}>
+            {" "}
+            <Box
+              component="img"
+              sx={{
+                height: 44,
+                px: 4,
+              }}
+              alt="logo"
+              src={
+                "https://xparametric.com/images/19bfaeaef18b7ffa151871e3709e43b5.svg"
+              }
+            />
+          </Link>
 
+          {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -127,11 +143,11 @@ function Header() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link href={page} key={page}>
+              <Link href={`/${page}`} key={page}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ my: 2, display: "block" }}
                 >
                   {page}
                 </Button>
@@ -169,8 +185,9 @@ function Header() {
             </Menu>
           </Box>
         </Toolbar>
-      </Box>
+      </Container>
     </AppBar>
   );
 }
+
 export default Header;

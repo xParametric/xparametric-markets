@@ -1,12 +1,16 @@
 import React from "react";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import { Box, Typography } from "@mui/material";
+import dynamic from "next/dynamic";
+import { Box, Typography, Tooltip } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 interface MarketQuestionDateProps {
   questionId: number;
 }
+
+const CalendarMonthIcon = dynamic(
+  () => import("@mui/icons-material/CalendarMonth")
+);
 
 const MarketQuestionDate: React.FC<MarketQuestionDateProps> = ({
   questionId,
@@ -23,19 +27,39 @@ const MarketQuestionDate: React.FC<MarketQuestionDateProps> = ({
     return null;
   }
 
+  // Format the expiry date
+  const expiryDate = new Date(question.expiryDate);
+  const formattedExpiryDate = expiryDate.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  // Check if the question is expired or expires today
+  const today = new Date();
+  const isExpired = expiryDate < today;
+  const isExpiringToday = expiryDate.toDateString() === today.toDateString();
+
   return (
-    <div>
-      <Box display={"flex"}>
-        <Box>
-          <CalendarMonthIcon />
+    <Box display="flex" alignItems="center">
+      <Tooltip
+        title={
+          isExpired
+            ? "This question has expired."
+            : isExpiringToday
+            ? "Expires today!"
+            : formattedExpiryDate
+        }
+        arrow
+      >
+        <Box display="flex" alignItems="center" pr={1}>
+          <CalendarMonthIcon fontSize="small" />
         </Box>
-        <Box>
-          <Typography variant="subtitle1" fontWeight={600}>
-            {question.expiryDate}
-          </Typography>
-        </Box>
-      </Box>
-    </div>
+      </Tooltip>
+      <Typography variant="subtitle2" fontWeight={500}>
+        {isExpired ? "Expired" : formattedExpiryDate}
+      </Typography>
+    </Box>
   );
 };
 

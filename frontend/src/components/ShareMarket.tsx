@@ -1,24 +1,38 @@
 import React from "react";
 import ShareIcon from "@mui/icons-material/Share";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
+
 const ShareMarket = () => {
+  const handleShareClick = () => {
+    // Replace 'YOUR_TWEET_MESSAGE' with the desired tweet message
+    const tweetMessage = "Check out this awesome market!";
+
+    // Generate the Twitter share URL with the tweet message as a query parameter
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      tweetMessage
+    )}`;
+
+    // Open the share URL in a new window
+    window.open(tweetUrl, "_blank");
+  };
+
   return (
-    <div>
-      {" "}
-      <Box display={"flex"}>
-        <Box>
-          <IconButton
-            disableRipple
-            sx={{ p: 0, mx: 1, color: "primary.light" }}
-          >
-            <ShareIcon />
-          </IconButton>
-        </Box>
-        {/* <Box>
-      <Typography variant="subtitle1" fontWeight={600}>3</Typography>
-    </Box> */}
-      </Box>
-    </div>
+    <Box display="flex" alignItems="center">
+      <Tooltip title="Share this Market on Twitter">
+        <IconButton
+          disableRipple
+          onClick={handleShareClick}
+          // color="primary"
+          aria-label="Share on Twitter"
+          sx={{
+            p: 1,
+            "&:hover": { backgroundColor: "transparent" },
+          }}
+        >
+          <ShareIcon fontSize="small" />
+        </IconButton>
+      </Tooltip>
+    </Box>
   );
 };
 

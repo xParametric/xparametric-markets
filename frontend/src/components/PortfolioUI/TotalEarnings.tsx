@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const TotalEarning = () => {
+const TotalEarning: React.FC = () => {
   const data = [
     {
       name: "Page A",
@@ -68,36 +68,45 @@ const TotalEarning = () => {
       amt: 100,
     },
   ];
+
   return (
-    <div>
-      <Box
-        sx={{ borderRadius: 1, m: 1, boxShadow: 1, width: "100%" }}
-        className="custom-portfolio-earning"
+    <Box
+      className="custom-portfolio-earning"
+      sx={{
+        borderRadius: 4,
+        m: 2,
+        boxShadow: 1,
+        backgroundColor: "#fff",
+        padding: 1,
+      }}
+    >
+      <Typography
+        variant="subtitle1"
+        sx={{ color: "background.default", mb: 1 }}
       >
-        <Typography sx={{ p: 1, color: "background.default" }}>
-          Total Earnings
-        </Typography>
-        <AreaChart
-          width={320}
-          height={60}
-          data={data}
-          margin={{
-            top: 5,
-            right: 0,
-            left: 0,
-            bottom: 5,
-          }}
-        >
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stroke="#FFFFFF"
-            fill="#FFFFFF"
-            opacity={0.6}
-          />
-        </AreaChart>
-      </Box>
-    </div>
+        Total Earnings
+      </Typography>
+
+      <AreaChart
+        width={320}
+        height={60}
+        data={data}
+        margin={{
+          top: 5,
+          right: 0,
+          left: 0,
+          bottom: 5,
+        }}
+      >
+        <Area
+          type="monotone"
+          dataKey="uv"
+          stroke="#FFFFFF"
+          fill="#FFFFFF"
+          fillOpacity={0.4}
+        />
+      </AreaChart>
+    </Box>
   );
 };
 

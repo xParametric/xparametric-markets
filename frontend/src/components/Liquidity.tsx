@@ -1,13 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Tooltip } from "@mui/material";
 import React from "react";
-import WaterDropIcon from "@mui/icons-material/WaterDropOutlined";
+
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 interface LiquidityProps {
   questionId: number;
 }
-
+import dynamic from "next/dynamic";
+const WaterDropIcon = dynamic(() => import("@mui/icons-material/WaterDrop"));
 const Liquidity: React.FC<LiquidityProps> = ({ questionId }) => {
   const question = useSelector((state: RootState) => {
     const selectedQuestion = state.questions.questionsData.find(
@@ -21,19 +22,20 @@ const Liquidity: React.FC<LiquidityProps> = ({ questionId }) => {
     return null;
   }
 
+  // Format the liquidity value with thousand separators
+  const formattedLiquidity = new Intl.NumberFormat().format(question.liquidity);
+
   return (
-    <div>
-      <Box display={"flex"}>
-        <Box>
-          <WaterDropIcon />
+    <Box display="flex" alignItems="center">
+      <Tooltip title="Liquidity" aria-label="Liquidity">
+        <Box display={"flex"} alignItems={"center"}>
+          <WaterDropIcon fontSize="small" />
         </Box>
-        <Box>
-          <Typography variant="subtitle1" fontWeight={600}>
-            ${question.liquidity} k
-          </Typography>
-        </Box>
-      </Box>
-    </div>
+      </Tooltip>
+      <Typography variant="subtitle2" fontWeight={500}>
+        {formattedLiquidity} K
+      </Typography>
+    </Box>
   );
 };
 

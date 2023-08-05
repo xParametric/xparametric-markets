@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
+
 const BookmarkMarket = () => {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmarkToggle = () => {
+    setIsBookmarked((prev) => !prev);
+  };
+
   return (
-    <div>
-      <Box display={"flex"}>
-        <Box>
-          <IconButton
-            disableRipple
-            sx={{ p: 0, mx: 1, color: "primary.light" }}
-          >
-            {" "}
-            <BookmarkAddIcon />
-          </IconButton>
-        </Box>
-        {/* <Box>
-          <Typography variant="subtitle1" fontWeight={600}>3</Typography>
-        </Box> */}
-      </Box>
-    </div>
+    <Box display="flex">
+      <Tooltip title={isBookmarked ? "Remove Bookmark" : "Add Bookmark"}>
+        <IconButton
+          disableRipple
+          onClick={handleBookmarkToggle}
+          sx={{
+            color: "primary.light",
+
+            "&:hover": { backgroundColor: "transparent" },
+          }}
+        >
+          {isBookmarked ? (
+            <BookmarkAddedIcon fontSize="small" />
+          ) : (
+            <BookmarkAddIcon fontSize="small" />
+          )}
+        </IconButton>
+      </Tooltip>
+    </Box>
   );
 };
 
