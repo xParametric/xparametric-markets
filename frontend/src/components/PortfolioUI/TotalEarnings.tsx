@@ -146,7 +146,7 @@ const TotalEarning: React.FC = () => {
         Volume Traded
       </Typography>
       <Typography variant="h6" color={"primary.main"}>
-        $ 54498650{" "}
+        $ 251724710{" "}
       </Typography>
     </Box>
   );

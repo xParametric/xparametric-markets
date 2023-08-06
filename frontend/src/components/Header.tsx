@@ -47,38 +47,6 @@ function Header() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component={Link}
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "primary.main",
-              textDecoration: "none",
-            }}
-          >
-            Parametrica
-          </Typography> */}
-          <Link href={"/"}>
-            {" "}
-            <Box
-              component="img"
-              sx={{
-                height: 44,
-                px: 4,
-                display: { xs: "none", md: "none" },
-              }}
-              alt="logo"
-              src={
-                "https://xparametric.com/images/19bfaeaef18b7ffa151871e3709e43b5.svg"
-              }
-            />
-          </Link>
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -122,38 +90,23 @@ function Header() {
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Parametrica
-          </Typography> */}{" "}
-          {/* Logo for Mobile */}
           <Link href={"/"}>
             <Box
               component="img"
-              justifyContent={"center"}
-              width={"100%"}
-              display={"flex"}
+              sx={{ height: 44, display: { xs: "none", md: "flex" }, mr: 1 }}
+              alt="logo"
+              src={
+                "https://xparametric.com/images/19bfaeaef18b7ffa151871e3709e43b5.svg"
+              }
+            />
+          </Link>
+          <Link href={"/"}>
+            <Box
+              component="img"
               sx={{
                 height: 44,
-                justifyContent: "center",
-                mx: "auto",
-                display: "flex",
-                width: "100%",
+                display: { xs: "flex", md: "none" },
+                mr: 6,
               }}
               alt="logo"
               src={
@@ -174,6 +127,7 @@ function Header() {
               </Link>
             ))}
           </Box>
+
           <ConnectKitButton />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
