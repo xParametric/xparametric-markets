@@ -4,9 +4,8 @@ import { SiweMessage } from "siwe";
 import { APP_NAME } from "@/lib/consts";
 import { FC, PropsWithChildren } from "react";
 import { WagmiConfig, createConfig } from "wagmi";
-import UserModel from "@/app/api/models/userModel";
-
-import dbConnect from "@/config/dbConfig";
+// import UserModel from "@/models/userModel";
+// import axios from "axios";
 import {
   ConnectKitProvider,
   SIWEConfig,
@@ -53,6 +52,18 @@ const siweConfig = {
     if (!res.ok) throw new Error("Failed to fetch SIWE session");
 
     const { address, chainId } = await res.json();
+    // const dbResponse = await axios.post("/api/createUser", {
+    //   walletAddress: address,
+    //   chainId: chainId,
+    // });
+    // if (!dbResponse.data) {
+    //   console.log("Error creating user in MongoDB");
+    // }
+    // const { walletAddress } = dbResponse.data;
+    // return {
+    //   address,
+    //   chainId,
+    // };
 
     // if (address && chainId) {
     //   try {

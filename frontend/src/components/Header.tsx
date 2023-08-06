@@ -71,6 +71,7 @@ function Header() {
               sx={{
                 height: 44,
                 px: 4,
+                display: { xs: "none", md: "none" },
               }}
               alt="logo"
               src={
@@ -78,7 +79,6 @@ function Header() {
               }
             />
           </Link>
-
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -123,7 +123,7 @@ function Header() {
             </Menu>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <Typography
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -140,7 +140,27 @@ function Header() {
             }}
           >
             Parametrica
-          </Typography>
+          </Typography> */}{" "}
+          {/* Logo for Mobile */}
+          <Link href={"/"}>
+            <Box
+              component="img"
+              justifyContent={"center"}
+              width={"100%"}
+              display={"flex"}
+              sx={{
+                height: 44,
+                justifyContent: "center",
+                mx: "auto",
+                display: "flex",
+                width: "100%",
+              }}
+              alt="logo"
+              src={
+                "https://xparametric.com/images/19bfaeaef18b7ffa151871e3709e43b5.svg"
+              }
+            />
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link href={`/${page}`} key={page}>

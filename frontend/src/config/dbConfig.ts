@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connection: { isConnected?: number } = {};
 
-async function dbConnect() {
+export function dbConnect() {
   if (connection.isConnected) {
     return;
   }
@@ -13,7 +13,7 @@ async function dbConnect() {
   };
   try {
     mongoose.Promise = global.Promise;
-    await mongoose.connect(process.env.NEXT_APP_MONGODB_URL!, connecterOptions);
+    mongoose.connect(process.env.NEXT_APP_MONGODB_URL!, connecterOptions);
     connection.isConnected = mongoose.connection.readyState;
     mongoose.connection.on("error", () => {
       throw new Error("Mongoose Connection Failed");
@@ -25,5 +25,3 @@ async function dbConnect() {
     console.error("Error connecting to database:", error);
   }
 }
-
-export default dbConnect;
