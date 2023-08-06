@@ -6,9 +6,7 @@ import React from "react";
 
 const markets = () => {
   return (
-    // <Container maxWidth="xl">
-
-    <div>
+    <Container maxWidth="xl">
       {/* markets */}
       <Box display={"flex"}>
         {" "}
@@ -16,8 +14,7 @@ const markets = () => {
         <MarketSearch />
       </Box>{" "}
       <MarketCardList />
-    </div>
-    // </Container>
+    </Container>
   );
 };
 
