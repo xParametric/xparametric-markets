@@ -23,12 +23,15 @@ const PorfolioTotalBalance: React.FC = () => {
         spacing={2}
       >
         <Grid item xs={12} sm={6} color={"primary.main"}>
-          <Typography variant="h4" component="div">
-            $0
+          <Typography variant="caption" fontWeight={600}>
+            Portfolio Value
           </Typography>
-          <Typography variant="subtitle1" color={"primary.main"}>
+          <Typography variant="h4" component="div" fontWeight={600} my={1}>
+            $44,98,650
+          </Typography>
+          {/* <Typography variant="subtitle1" color={"primary.main"}>
             Total Balance
-          </Typography>
+          </Typography> */}
         </Grid>
         <Grid item>
           <Box
@@ -42,7 +45,7 @@ const PorfolioTotalBalance: React.FC = () => {
           >
             <Box display="flex" alignItems="center">
               <ArrowDropUpIcon sx={{ color: "#FFF" }} />
-              <Typography sx={{ color: "#FFF", marginLeft: 1 }}>+0%</Typography>
+              <Typography sx={{ color: "#FFF" }}>+10200%</Typography>
             </Box>
           </Box>
         </Grid>

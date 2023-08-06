@@ -22,9 +22,9 @@ const theme = createTheme({
       paper: "rgb(255,255,255,0.5)",
     },
   },
-  // typography: {
-  //   fontFamily: "Raleway, sans-serif",
-  // },
+  typography: {
+    fontFamily: "Montserrat, sans-serif",
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, ChangeEvent } from "react";
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 
 const MarketSearch = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -12,13 +12,15 @@ const MarketSearch = () => {
   };
 
   return (
-    <TextField
-      fullWidth
-      value={searchValue}
-      onChange={handleSearchChange}
-      label="Search"
-      variant="outlined"
-    />
+    <Box m={2} display={"flex"} width={"100%"}>
+      <TextField
+        fullWidth
+        value={searchValue}
+        onChange={handleSearchChange}
+        placeholder="Search"
+        variant="outlined"
+      />
+    </Box>
   );
 };
 

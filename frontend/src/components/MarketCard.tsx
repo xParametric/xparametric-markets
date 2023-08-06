@@ -97,11 +97,14 @@ const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
                 >
                   <Box width="100%" sx={{ mx: 1 }}>
                     <Box>
-                      <Typography variant="body1">Yes</Typography>
+                      <Typography variant="subtitle1" fontWeight={500}>
+                        Yes
+                      </Typography>
                     </Box>
                     <Box display="flex">
                       <Typography variant="subtitle2">
-                        {question.betValueYes}USDT
+                        {question.betValueYes}{" "}
+                        <Typography variant="overline"> USDT</Typography>
                       </Typography>
                     </Box>
                   </Box>
@@ -121,11 +124,14 @@ const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
                 >
                   <Box width="100%" mx={1}>
                     <Box>
-                      <Typography variant="body1">No</Typography>
+                      <Typography variant="subtitle1" fontWeight={500}>
+                        No
+                      </Typography>
                     </Box>
                     <Box display="flex">
                       <Typography variant="subtitle2">
-                        {question.betValueNo}USDT
+                        {question.betValueNo}
+                        <Typography variant="overline"> USDT</Typography>
                       </Typography>
                     </Box>
                   </Box>

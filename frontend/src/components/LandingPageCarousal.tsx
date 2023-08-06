@@ -1,15 +1,14 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { loadQuestions, initialQuestionsState } from "@/redux/questionSlice";
 
 // import Swiper core and required modules
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -18,19 +17,23 @@ import "swiper/css/scrollbar";
 import { Container } from "@mui/material";
 import CarousalCard from "./CarousalCard";
 
-// SwiperCore.use([Autoplay]);
 const LandingPageCarousal: React.FC = () => {
   const dispatch = useDispatch();
 
-  // Load questions data from the Redux store
+  // Fetch questions data from the Redux store when the component mounts
   useEffect(() => {
     // Simulate fetching data from an API or backend
     const fetchData = async () => {
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      try {
+        // Simulate API call delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Dispatch the action to load the questions data into the store
-      dispatch(loadQuestions(initialQuestionsState.questionsData));
+        // Dispatch the action to load the questions data into the store
+        dispatch(loadQuestions(initialQuestionsState.questionsData));
+      } catch (error) {
+        // Handle error if necessary
+        console.error("Error fetching data:", error);
+      }
     };
 
     fetchData();
@@ -40,27 +43,22 @@ const LandingPageCarousal: React.FC = () => {
     (state: RootState) => state.questions.questionsData
   );
 
+  // Memoize questionsData to prevent unnecessary recalculations
+  const memoizedQuestionsData = useMemo(() => questionsData, [questionsData]);
+
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        // navigation
-        // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
-        // loop={true} // dont use if rewind is true
-        // loopedSlides={10}
-        // centeredSlides={true}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
-        // maxBackfaceHiddenSlides={10}
         rewind={true}
-        // navigation={true}
-        modules={[Autoplay, A11y, Pagination, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper"
         breakpoints={{
           640: {
@@ -77,17 +75,12 @@ const LandingPageCarousal: React.FC = () => {
           },
         }}
       >
-        {questionsData.map((questionItem) => (
+        {memoizedQuestionsData.map((questionItem) => (
           <SwiperSlide
             key={questionItem.id}
             style={{ justifyContent: "center", display: "flex" }}
           >
-            <CarousalCard
-              questionId={questionItem.id}
-              // betValueNo={question.betValueNo}
-              // betValueYes={question.betValueYes}
-              // imageUrl={question.imageUrl}
-            />
+            <CarousalCard questionId={questionItem.id} />
           </SwiperSlide>
         ))}
       </Swiper>
