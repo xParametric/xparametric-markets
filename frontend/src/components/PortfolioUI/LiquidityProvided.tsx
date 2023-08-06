@@ -110,7 +110,7 @@ const LiquidityProvided: React.FC = () => {
     // </Box>
     <Box
       borderRadius={2}
-      m={1}
+      my={1}
       // boxShadow={1}
       width={300}
       px={3}

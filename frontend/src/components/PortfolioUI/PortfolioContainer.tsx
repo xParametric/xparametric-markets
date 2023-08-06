@@ -5,10 +5,11 @@ import TotalEarnings from "./TotalEarnings";
 import OpenPositions from "./OpenPostions";
 import LiquidityEarnings from "./LiquidityEarnings";
 import LiquidityProvided from "./LiquidityProvided";
+import PorfolioTotalBalance from "./PorfolioTotalBalance";
 
 const PortfolioContainer = () => {
   return (
-    <Box>
+    <Container maxWidth="xl">
       <Grid container justifyContent={"space-around"}>
         <Grid item>
           {" "}
@@ -39,13 +40,13 @@ const PortfolioContainer = () => {
           }}
         >
           <Grid container>
-            <Grid xl={3}>
+            <Grid >
               <Typography>Portfolio Value</Typography>
             </Grid>
             <Grid xl={5}>
               <Typography>USD Value</Typography>
             </Grid>
-            <Grid xl={3}>
+            <Grid >
               <Box display={"flex"}>
                 <Button variant="contained">Deposit</Button>
                 <Button variant="outlined">Withdraw</Button>
@@ -54,7 +55,11 @@ const PortfolioContainer = () => {
           </Grid>
         </Box> */}
       </Grid>
-    </Box>
+      <Grid container px={1}>
+        {" "}
+        <PorfolioTotalBalance />
+      </Grid>
+    </Container>
   );
 };
 
