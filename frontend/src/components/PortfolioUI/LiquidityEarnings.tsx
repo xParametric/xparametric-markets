@@ -10,6 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 
 const LiquidityEarnings: React.FC = () => {
   const data = [
@@ -70,24 +71,85 @@ const LiquidityEarnings: React.FC = () => {
   ];
 
   return (
+    // <Box
+    //   className="custom-liquidity-earnings"
+    //   sx={{
+    //     borderRadius: 4,
+    //     m: 2,
+    //     boxShadow: 1,
+    //     backgroundColor: "#fff",
+    //     padding: 1,
+    //   }}
+    // >
+    //   <Typography
+    //     variant="subtitle1"
+    //     sx={{ color: "background.default", mb: 1 }}
+    //   >
+    //     Liquidity Earnings
+    //   </Typography>
+
+    //   <AreaChart
+    //     width={320}
+    //     height={60}
+    //     data={data}
+    //     margin={{
+    //       top: 5,
+    //       right: 0,
+    //       left: 0,
+    //       bottom: 5,
+    //     }}
+    //   >
+    //     <Area
+    //       type="monotone"
+    //       dataKey="uv"
+    //       stroke="#FFFFFF"
+    //       fill="#FFFFFF"
+    //       fillOpacity={0.4}
+    //     />
+    //   </AreaChart>
+    // </Box>
     <Box
-      className="custom-liquidity-earnings"
+      borderRadius={2}
+      m={1}
+      // boxShadow={1}
+      width={300}
+      px={3}
+      py={2}
+      border={1}
+      borderColor={"gray"}
       sx={{
-        borderRadius: 4,
-        m: 2,
-        boxShadow: 1,
-        backgroundColor: "#fff",
-        padding: 1,
+        // backgroundImage:
+        //   " linear-gradient(to right top, #1752f0, #5351ec, #7151e8, #8851e4, #9b51df)",
+        backgroundColor: "#ffffff",
+        backgroundBlendMode: "difference",
       }}
+      // justifyContent={"center"}
+      // alignItems={"center"}
+      display={"flex"}
+      flexDirection={"column"}
     >
-      <Typography
-        variant="subtitle1"
-        sx={{ color: "background.default", mb: 1 }}
+      <Box
+        sx={{
+          borderRadius: "100%",
+          backgroundColor: "#FEF5ED",
+          p: 1,
+          width: 40,
+          height: 40,
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          mr: 10,
+        }}
       >
+        <StackedLineChartIcon fontSize={"medium"} sx={{ color: "black" }} />
+      </Box>
+      <Typography variant="caption" color={"grey"} mt={1}>
         Liquidity Earnings
       </Typography>
-
-      <AreaChart
+      <Typography variant="h6" color={"primary.main"}>
+        $ 1650{" "}
+      </Typography>
+      {/* <AreaChart
         width={320}
         height={60}
         data={data}
@@ -105,7 +167,7 @@ const LiquidityEarnings: React.FC = () => {
           fill="#FFFFFF"
           fillOpacity={0.4}
         />
-      </AreaChart>
+      </AreaChart> */}
     </Box>
   );
 };

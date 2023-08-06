@@ -27,7 +27,7 @@ const PorfolioTotalBalance: React.FC = () => {
             Portfolio Value
           </Typography>
           <Typography variant="h4" component="div" fontWeight={600} my={1}>
-            $44,98,650
+            $4498650
           </Typography>
           {/* <Typography variant="subtitle1" color={"primary.main"}>
             Total Balance
