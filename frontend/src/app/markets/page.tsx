@@ -7,12 +7,10 @@ import React from "react";
 const markets = () => {
   return (
     <Container maxWidth="xl">
-      {/* markets */}
       <Box display={"flex"}>
-        {" "}
         <FilterMarkets />
         <MarketSearch />
-      </Box>{" "}
+      </Box>
       <MarketCardList />
     </Container>
   );

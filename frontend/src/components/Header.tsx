@@ -16,6 +16,7 @@ import {
   Button,
   Tooltip,
 } from "@mui/material";
+// import { useData } from "@/redux/abiSlice";
 
 const pages = ["markets", "portfolio", "leaderboard"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
