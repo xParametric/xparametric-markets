@@ -1,11 +1,12 @@
+"use client";
 import moment from "moment";
 import Head from "next/head";
 import Img from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
 import Web3 from "web3";
-import ChartContainer from "../../components/Chart/ChartContainer";
-import { loadWeb3 } from "../../redux/dataSlice";
+import ChartContainer from "../../../components/Chart/ChartContainer";
+import { loadWeb3 } from "../../../redux/dataSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 export interface MarketProps {
@@ -22,7 +23,7 @@ export interface MarketProps {
 
 const Details = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const id = router.push("/market/[id]");
   const dispatch = useDispatch<AppDispatch>();
   const { polymarket, account, loading, polyToken } = useSelector(
     (state: RootState) => state.data

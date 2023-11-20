@@ -1,8 +1,10 @@
 // import Plotly from "plotly.js-dist-min";
 import React, { useEffect } from "react";
 import Web3 from "web3";
-import { useData } from "../../../contexts/DataContext";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/store";
 
+import { loadWeb3 } from "@/redux/dataSlice";
 interface Props {
   questionId: string;
 }
@@ -13,7 +15,13 @@ interface ChartData {
 }
 
 const ChartContainer: React.FC<Props> = ({ questionId }) => {
-  const { polymarket } = useData();
+  // Use useSelector to access state from the Redux store
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { polymarket, account } = useSelector((state: RootState) => state.data);
+
+  // If you need to dispatch any actions, use useDispatch hook
+  // const dispatch = useDispatch();
 
   const fetchGraphData = async () => {
     var data = await polymarket.methods.getGraphData(questionId).call();
@@ -64,7 +72,12 @@ const ChartContainer: React.FC<Props> = ({ questionId }) => {
 
   useEffect(() => {
     fetchGraphData();
-  });
+
+    dispatch(loadWeb3());
+
+    // If you need to dispatch an action on component mount
+    // dispatch(yourActionCreator());
+  }, [dispatch, questionId]); // Add any dependencies needed for useEffect
 
   return (
     <>
