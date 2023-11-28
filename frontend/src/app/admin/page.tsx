@@ -1,5 +1,12 @@
 "use client";
-import { Grid, Input, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Grid,
+  Input,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { create } from "ipfs-http-client";
 
 import Link from "next/link";
@@ -51,73 +58,70 @@ function Admin() {
     router.push("/");
   };
   return (
-    <Grid container>
-      <Grid item>
-        {" "}
-        <div className="">
+    <Container maxWidth={"xl"}>
+      <Grid container>
+        <Grid item xs={12}>
           <Link href="/admin/markets">
-            <div className="">See All Markets</div>
+            <Button>See All Markets</Button>
           </Link>
-          <div className="lg ">
-            <span className="text-lg font-semibold mt-4">Add New Market</span>
-            <span className="text-lg font mt-6 mb-1">Market Title</span>
-            <Input
-              type="Input"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className=""
-              placeholder="Title"
-              autoComplete="off"
-            />
-            <span className="text-lg font mt-6 mb-1">Market Description</span>
-            <textarea
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className=""
-              placeholder="Description"
-              autoComplete="off"
-            ></textarea>
-            <span className="text-lg font mt-6 mb-1">Market Title Image</span>
-            <Input type="file" onChange={uploadImage} />
-            <span className="text-lg font mt-6 mb-1">Resolve URL</span>
-            <Input
-              type="input"
-              name="resolverUrl"
-              value={resolverUrl}
-              onChange={(e) => setResolverUrl(e.target.value)}
-              className=""
-              placeholder="URL"
-              autoComplete="off"
-            />
-            <span className="text-lg font mt-6 mb-1">End Date</span>
-            <input
-              type="date"
-              name="timestamp"
-              // value={timestamp}
-              onChange={(e) => {
-                setTimestamp(e.target.valueAsDate?.getTime());
-              }}
-              className=""
-              autoComplete="off"
-            />
-            {loading ? (
-              <span className="">Loading...</span>
-            ) : (
-              <button
-                className=""
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Create Market
-              </button>
-            )}
-          </div>
-        </div>
+          <Typography variant="h6" gutterBottom>
+            Add New Market
+          </Typography>
+          <TextField
+            label="Market Title"
+            variant="outlined"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            fullWidth
+            autoComplete="off"
+            margin="normal"
+          />
+          <TextField
+            label="Market Description"
+            variant="outlined"
+            multiline
+            rows={4}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <Typography variant="h6" gutterBottom>
+            Market Title Image
+          </Typography>
+          <Button variant="contained" component="label">
+            Upload File
+            <input type="file" hidden onChange={uploadImage} />
+          </Button>
+          <TextField
+            label="Resolve URL"
+            variant="outlined"
+            value={resolverUrl}
+            onChange={(e) => setResolverUrl(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <span className="text-lg font mt-6 mb-1">End Date</span>
+          <input
+            type="date"
+            name="timestamp"
+            // value={timestamp}
+            onChange={(e) => {
+              setTimestamp(e.target.valueAsDate?.getTime());
+            }}
+            className=""
+            autoComplete="off"
+          />
+          {loading ? (
+            <span className="">Loading...</span>
+          ) : (
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+              Create Market
+            </Button>
+          )}
+        </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 }
 
