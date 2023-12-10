@@ -1,9 +1,7 @@
 "use client";
-
 import CarousalDynamicLoading from "@/components/CarousalDynamicLoading";
 import MarketCardList from "@/components/MarketCardList";
 import { Typography } from "@mui/material";
-
 const Home = () => {
   return (
     <main className="background">

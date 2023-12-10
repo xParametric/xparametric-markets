@@ -14,6 +14,18 @@ import { ReduxProvider } from "@/redux/provider";
 //   subsets: ["latin"],
 // });
 
+// import { DataProvider } from "../../contexts/DataContext";
+// import "../styles/globals.css";
+
+// function MyApp({ Component, pageProps }: AppProps) {
+//   return (
+//     <DataProvider>
+//       <Component {...pageProps} />
+//     </DataProvider>
+//   );
+// }
+// export default MyApp;
+
 export const metadata: Metadata = {
   title: "Parametrica",
   description:
