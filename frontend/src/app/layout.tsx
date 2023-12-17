@@ -8,6 +8,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
+import { DataProvider } from "@/context/DataContext";
 // import store from "@/redux/store";
 // import { ReduxProvider } from "@/redux/provider";
 // const raleway = Raleway({
@@ -27,11 +28,13 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
         {/* <ReduxProvider> */}{" "}
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <ClientLayout>
-            <Header />
-            {children}
-            <Footer />
-          </ClientLayout>
+          <DataProvider>
+            <ClientLayout>
+              <Header />
+              {children}
+              <Footer />
+            </ClientLayout>
+          </DataProvider>
         </ThemeProvider>
         {/* </ReduxProvider> */}
       </body>

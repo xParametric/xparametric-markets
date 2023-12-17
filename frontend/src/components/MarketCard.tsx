@@ -1,187 +1,107 @@
-"use client";
-import * as React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import Web3 from "web3";
+import { MarketProps } from "./PortfolioMarketCard";
+import { Box, Card, CardContent, Typography, Avatar } from "@mui/material";
+// import { Avatar } from "connectkit";
 
-import {
-  Container,
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
-import CardThumbnailChartYes from "./CardThumbnailChartYes";
-import CardThumbnailChartNo from "./CardThumbnailChartNo";
-import Liquidity from "./Liquidity";
-import MarketValue from "./MarketValue";
-import MarketTradingFee from "./MarketTradingFee";
-import MarketQuestionDate from "./MarketQuestionDate";
-
-import ShareMarket from "./ShareMarket";
-import BookmarkMarket from "./BookmarkMarket";
-import MarketVote from "./MarketVote";
-import MarketQuestionBreadCrumbs from "./MarketQuestionBreadCrumbs";
-
-interface MarketCardListProps {
-  questionId: number; // Add the questionId prop to the MarketCard component
-  // Rest of the props...
-}
-
-const MarketCard: React.FC<MarketCardListProps> = ({ questionId }) => {
-  const questions = useSelector(
-    (state: RootState) => state.questions.questionsData
-  );
-
-  // Find the question corresponding to the given questionId
-  const question = questions.find((q) => q.id === questionId);
-
-  if (!question) {
-    // Handle the case when the question is not found
-    return null;
-  }
-
+export const MarketCard: React.FC<MarketProps> = ({
+  id,
+  title,
+  totalAmount,
+  totalYes,
+  totalNo,
+  imageHash,
+}) => {
   return (
-    <Container maxWidth={"xl"}>
-      {/* Removed unnecessary opening and closing div tags */}
-      <Box
-        key={question.id}
-        sx={{
-          borderRadius: 3,
-          boxShadow: 1,
-          borderColor: "#8C8881",
-          my: 2,
-        }}
-      >
-        <Card sx={{ display: "flex", width: "100%" }}>
-          <Box sx={{ width: 100, height: 100, my: "auto", mx: 2 }}>
-            <CardMedia
-              component="img"
-              sx={{
-                width: "100px",
-                height: "100px",
-                borderRadius: "100%",
-              }}
-              image={question.imageUrl}
-              alt="Live from space album cover"
-            />
-          </Box>
-          <Grid container>
-            <Grid item xs={12} xl={7}>
-              <CardContent>
-                <Box>
-                  <MarketQuestionBreadCrumbs questionId={questionId} />
-                </Box>
-                <Typography
-                  component="div"
-                  variant="h5"
-                  id="question"
-                  sx={{ py: 1 }}
-                >
-                  {question.question}
-                </Typography>
-              </CardContent>
-            </Grid>
-            <Grid item xs={12} xl={5}>
-              <Box display="flex" flexDirection={{ xs: "column", xl: "row" }}>
-                <Box
-                  display="flex"
-                  sx={{
-                    border: 1,
-                    m: 2,
-                    p: 2,
-                    borderRadius: 1,
-                    borderBottomColor: "#284E45",
-                  }}
-                >
-                  <Box width="100%" sx={{ mx: 1 }}>
-                    <Box>
-                      <Typography variant="subtitle1" fontWeight={500}>
-                        Yes
-                      </Typography>
-                    </Box>
-                    <Box display="flex">
-                      <Typography variant="subtitle2">
-                        {question.betValueYes}{" "}
-                        <Typography variant="overline"> USDT</Typography>
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box sx={{ mx: 1 }}>
-                    <CardThumbnailChartYes />
-                  </Box>
-                </Box>
-                <Box
-                  display="flex"
-                  sx={{
-                    border: 1,
-                    m: 2,
-                    p: 2,
-                    borderRadius: 1,
-                    borderBottomColor: "#9F3638",
-                  }}
-                >
-                  <Box width="100%" mx={1}>
-                    <Box>
-                      <Typography variant="subtitle1" fontWeight={500}>
-                        No
-                      </Typography>
-                    </Box>
-                    <Box display="flex">
-                      <Typography variant="subtitle2">
-                        {question.betValueNo}
-                        <Typography variant="overline"> USDT</Typography>
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box mx={1}>
-                    <CardThumbnailChartNo />
-                  </Box>
-                </Box>
-              </Box>
-            </Grid>
-          </Grid>
-        </Card>
-        <Grid
-          container
+    <Box sx={{ marginBottom: 2, width: "100%" }}>
+      <Link href={`/market/${id}`} passHref>
+        <Card
           sx={{
-            backgroundColor: "secondary.main",
-            color: "primary.light",
+            cursor: "pointer",
+            "&:hover": { borderColor: "blue.700" },
+            borderWidth: 1,
+            borderColor: "grey.300",
+            borderRadius: 2,
           }}
         >
-          <Grid item xs={12} xl={5}>
+          <CardContent>
             <Box
               sx={{
                 display: "flex",
-                justifyContent: { xs: "space-between", xl: "space-around" },
-                p: 1,
-                borderRadius: 3,
+                flexDirection: "row",
+                gap: 2,
+                paddingBottom: 3,
               }}
             >
-              <MarketValue questionId={questionId} />
-              <Liquidity questionId={questionId} />
-              <MarketTradingFee questionId={questionId} />
-              <MarketQuestionDate questionId={questionId} />
+              <Avatar
+                src={`https://ipfs.infura.io/ipfs/${imageHash}`}
+                sx={{ width: 48, height: 48 }}
+                alt="Image Hash"
+              />
+              <Typography variant="subtitle2">{title}</Typography>
             </Box>
-          </Grid>
-          <Grid item xs={12} xl={4}></Grid>
-          <Grid item xs={12} xl={3}>
             <Box
               sx={{
                 display: "flex",
-                justifyContent: { xs: "space-between", xl: "space-around" },
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              <ShareMarket />
-              <BookmarkMarket />
-              <MarketVote />
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
+                <Typography variant="caption" color="text.secondary">
+                  Volume
+                </Typography>
+                <Typography variant="body2">
+                  {parseFloat(Web3.utils.fromWei(totalAmount, "ether")).toFixed(
+                    2
+                  )}{" "}
+                  POLY
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
+                <Typography variant="caption" color="text.secondary">
+                  Yes
+                </Typography>
+                <Box
+                  sx={{
+                    backgroundColor: "grey.200",
+                    textAlign: "center",
+                    borderRadius: 1,
+                  }}
+                >
+                  <Typography variant="caption" color="primary.main">
+                    {parseFloat(Web3.utils.fromWei(totalYes, "ether")).toFixed(
+                      2
+                    )}{" "}
+                    POLY
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
+                <Typography variant="caption" color="text.secondary">
+                  No
+                </Typography>
+                <Box
+                  sx={{
+                    backgroundColor: "grey.200",
+                    textAlign: "center",
+                    borderRadius: 1,
+                  }}
+                >
+                  <Typography variant="caption" color="primary.main">
+                    {parseFloat(Web3.utils.fromWei(totalNo, "ether")).toFixed(
+                      2
+                    )}{" "}
+                    POLY
+                  </Typography>
+                </Box>
+              </Box>
             </Box>
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
+          </CardContent>
+        </Card>
+      </Link>
+    </Box>
   );
 };
-
-export default MarketCard;
