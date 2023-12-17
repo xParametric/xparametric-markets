@@ -1,3 +1,4 @@
+import { Filter } from "@/components/Filter";
 import FilterMarkets from "@/components/FilterMarkets";
 import MarketCardList from "@/components/MarketCardList";
 import MarketSearch from "@/components/MarketSearch";
@@ -11,6 +12,7 @@ const markets = () => {
       <Box display={"flex"}>
         {" "}
         <FilterMarkets />
+        {/* <Filter /> */}
         <MarketSearch />
       </Box>{" "}
       <MarketCardList />

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { loadQuestions, initialQuestionsState } from "@/redux/questionSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { RootState } from "@/redux/store";
+// import { loadQuestions, initialQuestionsState } from "@/redux/questionSlice";
 
 // import Swiper core and required modules
 import { Autoplay } from "swiper/modules";
@@ -18,33 +18,33 @@ import { Container } from "@mui/material";
 import CarousalCard from "./CarousalCard";
 
 const LandingPageCarousal: React.FC = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // Fetch questions data from the Redux store when the component mounts
-  useEffect(() => {
-    // Simulate fetching data from an API or backend
-    const fetchData = async () => {
-      try {
-        // Simulate API call delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+  // useEffect(() => {
+  //   // Simulate fetching data from an API or backend
+  //   const fetchData = async () => {
+  //     try {
+  //       // Simulate API call delay
+  //       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        // Dispatch the action to load the questions data into the store
-        dispatch(loadQuestions(initialQuestionsState.questionsData));
-      } catch (error) {
-        // Handle error if necessary
-        console.error("Error fetching data:", error);
-      }
-    };
+  //       // Dispatch the action to load the questions data into the store
+  //       dispatch(loadQuestions(initialQuestionsState.questionsData));
+  //     } catch (error) {
+  //       // Handle error if necessary
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [dispatch]);
+  //   fetchData();
+  // }, [dispatch]);
 
-  const questionsData = useSelector(
-    (state: RootState) => state.questions.questionsData
-  );
+  // const questionsData = useSelector(
+  //   (state: RootState) => state.questions.questionsData
+  // );
 
   // Memoize questionsData to prevent unnecessary recalculations
-  const memoizedQuestionsData = useMemo(() => questionsData, [questionsData]);
+  // const memoizedQuestionsData = useMemo(() => questionsData, [questionsData]);
 
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
@@ -75,14 +75,14 @@ const LandingPageCarousal: React.FC = () => {
           },
         }}
       >
-        {memoizedQuestionsData.map((questionItem) => (
+        {/* {memoizedQuestionsData.map((questionItem) => (
           <SwiperSlide
             key={questionItem.id}
             style={{ justifyContent: "center", display: "flex" }}
           >
             <CarousalCard questionId={questionItem.id} />
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
     </Container>
   );

@@ -3,9 +3,12 @@
 import { SiweMessage } from "siwe";
 import { APP_NAME } from "@/lib/consts";
 import { FC, PropsWithChildren } from "react";
-import { WagmiConfig, createConfig } from "wagmi";
+import { WagmiConfig, createConfig, sepolia } from "wagmi";
+import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
+
 // import UserModel from "@/models/userModel";
 // import axios from "axios";
+
 import {
   ConnectKitProvider,
   SIWEConfig,
@@ -13,11 +16,13 @@ import {
   getDefaultConfig,
 } from "connectkit";
 
+const chains = [mainnet, polygon, optimism, arbitrum, sepolia];
 const config = createConfig(
   getDefaultConfig({
     appName: APP_NAME,
     infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
+    chains,
   })
 );
 

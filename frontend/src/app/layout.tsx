@@ -8,8 +8,9 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
-import store from "@/redux/store";
-import { ReduxProvider } from "@/redux/provider";
+import { DataProvider } from "@/context/DataContext";
+// import store from "@/redux/store";
+// import { ReduxProvider } from "@/redux/provider";
 // const raleway = Raleway({
 //   subsets: ["latin"],
 // });
@@ -24,17 +25,18 @@ const RootLayout: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>
-          {" "}
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
+        {/* <ReduxProvider> */}{" "}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <DataProvider>
             <ClientLayout>
               <Header />
               {children}
               <Footer />
             </ClientLayout>
-          </ThemeProvider>
-        </ReduxProvider>
+          </DataProvider>
+        </ThemeProvider>
+        {/* </ReduxProvider> */}
       </body>
     </html>
   );
